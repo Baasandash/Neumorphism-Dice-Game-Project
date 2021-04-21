@@ -46,9 +46,10 @@ document.querySelector(".btn-roll").addEventListener("click", shoogShid);
 
 function shoogShid() {
   var diceToo = Math.floor(Math.random() * 6) + 1;
-  //alert("Shoo buulaa : " + diceToo);
   diceDom.src = "dice-" + diceToo + ".png";
   diceDom.style.display = "block";
+
+  //Current-d shoonii nudnii toog gargah
   roundscore = roundscore + diceToo;
   if (activePlayer === 0) {
     cur0.textContent = diceToo;
@@ -56,18 +57,29 @@ function shoogShid() {
     cur1.textContent = diceToo;
   }
 }
+
 //Hold Points
 document.querySelector(".btn-hold").addEventListener("click", function () {
-  scores[activePlayer] = scores[activePlayer] + roundscore;
+  var count = scores[activePlayer] + roundscore;
+  if (count === 50) {
+    scores[activePlayer] = scores[activePlayer] + roundscore;
+    alert("Player " + (activePlayer + 1 + " is won"));
+  } else if (count !== 50 && count < 50) {
+    scores[activePlayer] = scores[activePlayer] + roundscore;
+  }
   roundscore = 0;
+
   if (activePlayer === 0) {
+    document.querySelector(".player-0-panel").classList.remove("active");
     activePlayer = 1;
+    document.querySelector(".player-1-panel").classList.add("active");
+    cur0.textContent = "0";
     score0.textContent = scores[0];
   } else {
+    document.querySelector(".player-1-panel").classList.remove("active");
     activePlayer = 0;
+    document.querySelector(".player-0-panel").classList.add("active");
     cur1.textContent = "0";
     score1.textContent = scores[1];
   }
 });
-
-//onoo shalgah
