@@ -7,16 +7,14 @@ var roundscore = 0;
 //Shoonii buuh huvisagch 1-6 gsen utgiig ene huvisagchid sanamsarguigeer gargana
 
 //Program is starting
-//<div class="player-score" id="score-0">43</div>
-// window.document.getElementById("score-0").textContent = "0";
-// window.document.getElementById("score-1").textContent = "0";
+
 var score0 = window.document.getElementById("score-0");
 var score1 = window.document.getElementById("score-1");
 score0.textContent = "0";
 score1.textContent = "0";
+
 // document.querySelector("#current-0").textContent = "0";
 // document.querySelector("#current-1").textContent = "0";
-
 // document.getElementById("current-0").textContent = "0";
 // document.getElementById("current-1").textContent = "0";
 
@@ -24,8 +22,7 @@ var cur0 = document.getElementById("current-0");
 var cur1 = document.getElementById("current-1");
 cur0.textContent = "0";
 cur1.textContent = "0";
-/* <img src="dice-5.png" alt="Dice" class="dice"></img> */
-//document.querySelector(".dice").style.display = "none";
+
 var diceDom = document.querySelector(".dice");
 diceDom.style.display = "none";
 
@@ -59,6 +56,7 @@ function shoogShid() {
 }
 
 //Hold Points
+
 document.querySelector(".btn-hold").addEventListener("click", function () {
   var count = scores[activePlayer] + roundscore;
   if (count === 50) {
@@ -68,7 +66,6 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
     scores[activePlayer] = scores[activePlayer] + roundscore;
   }
   roundscore = 0;
-
   if (activePlayer === 0) {
     document.querySelector(".player-0-panel").classList.remove("active");
     activePlayer = 1;
